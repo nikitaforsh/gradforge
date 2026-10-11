@@ -4,18 +4,20 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gradforge" 
-version = "2.0.1"
+version = "2.0.2"
 description = "Machinelearning library"
 readme = "README.md"
 license = {text = "MIT"}
-authors = [{name = "insane-machines", email = "forshnikita@gmail.com"}]
+authors = [{name = "insane-machines", email = "forshnikita2@gmail.com"}]
+requires-python = ">=3.11"
 dependencies = [
+    "colorama>=0.4.6",
     "numpy",
     "pytest>=9.1.1",
 ] 
 
 [project.urls]
-Homepage = "https://github.com/nikitaforsh/fsh"
+Homepage = "https://github.com/nikitaforsh/gradforge"
 
 [project.optional-dependencies]
 cuda = [
