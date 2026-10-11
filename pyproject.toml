@@ -11,7 +11,7 @@ license = {text = "MIT"}
 authors = [{name = "insane-machines", email = "forshnikita2@gmail.com"}]
 requires-python = ">=3.11"
 dependencies = [
-    "colorama>=0.4.6",`
+    "colorama>=0.4.6",
     "numpy",
     "pytest>=9.1.1",
 ] 
