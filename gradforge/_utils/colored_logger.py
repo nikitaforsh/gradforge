@@ -2,8 +2,10 @@ import logging
 
 from colorama import Fore, Style, init
 
+
 class ColoredFormatter(logging.Formatter):
-    COLORS = {
+
+    COLORS = {  
         logging.DEBUG: Fore.CYAN,
         logging.INFO: Fore.GREEN,
         logging.WARNING: Fore.YELLOW,
@@ -12,7 +14,7 @@ class ColoredFormatter(logging.Formatter):
     }
 
     def format(self, record):
-        color = self.COLORS.get(record.levelno)
+        color = self.COLORS.get(record.levelno, Fore.WHITE)
  
         fmt = f"{Fore.LIGHTBLACK_EX}%(asctime)s {color}[%(levelname)s]{Style.RESET_ALL} %(message)s"
         
@@ -20,9 +22,9 @@ class ColoredFormatter(logging.Formatter):
         return formatter.format(record)
 
 class Logger:
-    def __init__(self, name: str):
+    def __init__(self):
         init(autoreset=True)
-        self.logger = logging.getLogger(name=name)
+        self.logger = logging.getLogger("AppLogger")
         self.logger.setLevel(logging.DEBUG)
 
         console_handler = logging.StreamHandler()
