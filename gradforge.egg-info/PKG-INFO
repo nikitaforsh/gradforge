@@ -1,11 +1,13 @@
 Metadata-Version: 2.4
 Name: gradforge
-Version: 2.0.1
+Version: 2.0.2
 Summary: Machinelearning library
-Author-email: insane-machines <forshnikita@gmail.com>
+Author-email: insane-machines <forshnikita2@gmail.com>
 License: MIT
-Project-URL: Homepage, https://github.com/nikitaforsh/fsh
+Project-URL: Homepage, https://github.com/nikitaforsh/gradforge
+Requires-Python: >=3.11
 Description-Content-Type: text/markdown
+Requires-Dist: colorama>=0.4.6
 Requires-Dist: numpy
 Requires-Dist: pytest>=9.1.1
 Provides-Extra: cuda
