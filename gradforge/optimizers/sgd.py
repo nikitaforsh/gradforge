@@ -6,8 +6,10 @@ class SGD(Optimizer):
 
     def step(self, params: list[Tensor]):
         for param in params:
+            if param.data.shape != param.grad.shape:
+                param.sum_grads()
             param.data -= param.grad * self.learning_rate
 
     def zero_grad(self, params: list[Tensor]):
         for param in params:
-            param.grad = param.backend.zeros_like(param.data)   
+            param.grad = 0  

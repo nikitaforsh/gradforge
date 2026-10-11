@@ -5,14 +5,18 @@ from ..autograd._operations import mul, matmul, sub, div, add, pow
 from typing import Optional
 
 class Tensor():
-    __slots__ = ['data', 'requires_grad', 'grad', 'grad_fn', 'backend']
+    __slots__ = ['data', 'requires_grad', 'grad', 'grad_fn', 'backend', 'grad_sum_axes']
     
-    def __init__(self, data, requires_grad: bool = False):
+    def __init__(self, data, requires_grad: bool = False, grad_sum_axes: tuple = (0, 0)):
         self.requires_grad: bool = requires_grad
         self.grad = 0
         self.grad_fn: Optional[list] = None
         self.backend: Backend = BackendManager.get_backend()
         self.data = self.backend.convert(data)
+        self.grad_sum_axes = grad_sum_axes
+
+    def sum_grads(self):
+        self.grad = self.backend.sum_array(self.grad, self.grad_sum_axes)
 
     def __mul__(self, other): 
         mul_op = mul.Mul(self.backend)

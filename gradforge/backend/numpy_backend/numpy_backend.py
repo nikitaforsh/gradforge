@@ -64,9 +64,17 @@ class NumpyBackend(Backend):
         return np.ones(shape)
 
     def is_native(self, data) -> bool:
-        if type(data) is np.ndarray:
-            return True
-        else: 
-            return False
+        return type(data) is np.ndarray
+
+    def sum_array(self, data, axis: tuple):
+        if(axis[0]):
+            data = self.convert([sum(data)])
+
+        if(axis[1]):
+            data = self.convert([sum(string) for string in data])
+
+        return data
+
+
         
     

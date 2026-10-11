@@ -6,9 +6,11 @@ class Linear(Layer):
         super().__init__()      
         self._backend = BackendManager.get_backend()
         self.w: Tensor = Tensor(self._backend.array_zeros((in_shape, out_shape)), requires_grad=True)
+        self.b: Tensor = Tensor(self._backend.array_ones((1,)), requires_grad=True, grad_sum_axes=(1, 1))
+
         
     def predict(self, x: Tensor) -> Tensor:
-        return x @ self.w
+        return x @ self.w + self.b
 
     @property
     def params(self) -> list[Tensor]:

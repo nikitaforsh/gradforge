@@ -80,6 +80,10 @@ class Backend(ABC):
     def is_native(self, data) -> bool:
         pass
 
+    @abstractmethod
+    def sum_array(self, data, axis: tuple):
+        pass
+
 
 
     

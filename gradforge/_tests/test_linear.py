@@ -17,11 +17,9 @@ def train(model, x, y, epochs):
 
         optimizer.zero_grad(model.params)
         engine.backward(loss)
-        print('eror grad: ', error.grad)
-        try:
-            optimizer.step(model.params)
-        except Exception as e:
-            print('Error: ', e)
+        #print('eror grad: ', error.grad)
+        optimizer.step(model.params)
+        print("Bias grad: ", model.b.grad, "Bias data: ", model.b.data)
 
     print(x.data @ model.w.data)
 
@@ -33,6 +31,7 @@ assert x.data.shape == y.data.shape
 #before = tracemalloc.take_snapshot()
 
 model = Linear(1, 1)
+print(model.b.data)
 train(model, x, y, epochs=10000)
 # after = tracemalloc.take_snapshot()
 

@@ -27,6 +27,7 @@ class StandardEngine(Engine):
             if parent.grad_fn is not None:  
                 self.backward(parent, parent.grad)
 
+
     def backward(self, tensor: Tensor, grad=None):
         if grad is None:
             grad = self._prepare_root_grad(tensor)
