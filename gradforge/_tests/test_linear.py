@@ -1,7 +1,7 @@
-from gradforge.core.tensor import Tensor
-from gradforge.optimizers.sgd import SGD
+from gradforge.core import Tensor
+from gradforge.optimizers import SGD
 from gradforge.autograd.standard_engine import StandardEngine
-from gradforge.backend.backend_manager import BackendManager
+from gradforge.backend import BackendManager
 from gradforge.training.layers.linear import Linear
 import tracemalloc
 

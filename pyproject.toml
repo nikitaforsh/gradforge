@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gradforge" 
-version = "2.0.2"
+version = "2.1.0"
 description = "Machinelearning library"
 readme = "README.md"
 license = {text = "MIT"}
@@ -12,6 +12,7 @@ authors = [{name = "insane-machines", email = "forshnikita2@gmail.com"}]
 requires-python = ">=3.11"
 dependencies = [
     "colorama>=0.4.6",
+    "maturin>=1.15.0",
     "numpy",
     "pytest>=9.1.1",
 ] 

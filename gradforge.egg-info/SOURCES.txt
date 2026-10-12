@@ -26,6 +26,7 @@ gradforge/backend/backend.py
 gradforge/backend/backend_manager.py
 gradforge/backend/cupy_backend/cuda_backend.py
 gradforge/backend/numpy_backend/numpy_backend.py
+gradforge/core/__init__.py
 gradforge/core/tensor.py
 gradforge/data/preprocessing/__init__.py
 gradforge/data/preprocessing/preprocess.py

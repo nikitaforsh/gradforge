@@ -1,4 +1,5 @@
 colorama>=0.4.6
+maturin>=1.15.0
 numpy
 pytest>=9.1.1
 
