@@ -13,7 +13,7 @@ class linearModel:
         self.y = Tensor([[2, 4, 6, 8, 10]])
 
         self.w = Tensor(self.backend.array_zeros((self.x.data.shape[1], self.y.data.shape[1])), requires_grad=True)
-        self.b = Tensor([0], requires_grad=True)
+        self.b = Tensor([0], grad_sum_axes=(1, 1), requires_grad=True)
 
 
     def learn(self, epochs):
