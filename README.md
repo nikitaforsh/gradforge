@@ -6,7 +6,7 @@
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00FFAA&center=true&vCenter=true&width=500&lines=Hi,+I'm+nikitaforsh!;Welcome+to++our+machinelearning+library;named+GradForge!" alt="Typing SVG" />
 </h1>
 -->
-**Welcome to GradForge, machinelearning library created for full customization of learning process**
+# Welcome to GradForge, machinelearning library created for full customization of learning process
 
 <p align="center">
   <a href="https://t.me/insane_machines" target="_blank">
