@@ -19,22 +19,39 @@ Linear model with:
 • **Simple integration**  
 
 ---
+**Project published on PyPI**
+
+Install it with pip
+
+```bash
+pip install gradforge
+```
 
 Quick Start
 
 ```python
-import fsh
+from gradforge.core import Tensor
+from gradforge.optimizers import SGD
+from gradforge.autograd.standard_engine import StandardEngine
+from gradforge.backend import BackendManager, NumpyBackend
+from gradforge.training.layers.linear import Linear
 
-X = [[1, 2], [3, 4]]
-y = [[5], [6]]
+BackendManager.set_backend(NumpyBackend())
 
-#array converting is integrated! but you can do it yourself!
-X = fsh.fsh.preprocessing.to_array(X)
-y = fsh.fsh.preprocessing.to_array(y)
+x       = Tensor([[4], [8], [9]])
+y       = Tensor([[8], [16], [18]])
+test    = Tensor([[40], [60]])
 
-callback = fsh.fsh.callbacks.History()
-model = fsh.fsh.Linear(n_features=2, lr=0.01)
+model = Linear(1, 1)
+engine = StandardEngine()
+optimizer = SGD(learning_rate=1e-3)
+for epoch in range(1000):
+    y_pred  = model.predict(x)
+    error   = y - y_pred
+    loss    = error ** 2
 
-# Training
-model.train(X, y, epochs=100, callbacks=[callback], loss_fn=fsh.fsh.metrics.mse)
-model.predict(X)
+    optimizer.zero_grad(model.params)
+    engine.backward(loss)
+    optimizer.step(model.params)
+
+print(model.predict(test).data)
