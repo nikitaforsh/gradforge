@@ -12,11 +12,11 @@
 </p>
 Features
 
-Linear model with: 
+Models and layers with: 
+• **Autograd**  
 • **Callbacks**
 • **Metrics** 
 • **Preprocessing functions**
-• **Simple integration**  
 
 ---
 **Project published on PyPI**
