@@ -1,9 +1,6 @@
-from typing import TYPE_CHECKING
-
 from ...autograd.operation import Operation
 
-if TYPE_CHECKING:
-    from ...core.tensor import Tensor
+
 class Mul(Operation):
     def __init__(self, backend) -> None:
         super().__init__(backend)
