@@ -1,12 +1,14 @@
+#import tracemalloc
+
+from gradforge.autograd.standard_engine import StandardEngine
+
+#from gradforge.backend import BackendManager
 from gradforge.core import Tensor
 from gradforge.optimizers import SGD
-from gradforge.autograd.standard_engine import StandardEngine
-from gradforge.backend import BackendManager
 from gradforge.training.layers.linear import Linear
-import tracemalloc
 
 #tracemalloc.start()
-    
+
 def train(model, x, y, epochs):
     engine = StandardEngine()
     optimizer = SGD(learning_rate=1e-3)
