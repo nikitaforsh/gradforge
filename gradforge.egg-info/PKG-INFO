@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: gradforge
-Version: 2.1.0
+Version: 2.1.1
 Summary: Machinelearning library
 Author-email: insane-machines <forshnikita2@gmail.com>
 License: MIT
@@ -14,12 +14,16 @@ Requires-Dist: pytest>=9.1.1
 Provides-Extra: cuda
 Requires-Dist: cupy; extra == "cuda"
 
+<!--
 <h1 align="center">
   <img src="https://github.com/insane-machines/fsh/blob/main/fsh/fsh.egg-info/logo.jpg"></img>
 </h1>
 <h1 align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00FFAA&center=true&vCenter=true&width=500&lines=Hi,+I'm+nikitaforsh!;Welcome+to++our+machinelearning+library;named+GradForge!" alt="Typing SVG" />
 </h1>
+-->
+# Welcome to GradForge 
+## Machinelearning library created for full customization of learning process
 
 <p align="center">
   <a href="https://t.me/insane_machines" target="_blank">
@@ -28,29 +32,46 @@ Requires-Dist: cupy; extra == "cuda"
 </p>
 Features
 
-Linear model with: 
+Models and layers with: 
+• **Autograd**  
 • **Callbacks**
 • **Metrics** 
 • **Preprocessing functions**
-• **Simple integration**  
 
 ---
+**Project published on PyPI**
+
+Install it with pip
+
+```bash
+pip install gradforge
+```
 
 Quick Start
 
 ```python
-import fsh
+from gradforge.core import Tensor
+from gradforge.optimizers import SGD
+from gradforge.autograd.standard_engine import StandardEngine
+from gradforge.backend import BackendManager, NumpyBackend
+from gradforge.training.layers.linear import Linear
 
-X = [[1, 2], [3, 4]]
-y = [[5], [6]]
+BackendManager.set_backend(NumpyBackend())
 
-#array converting is integrated! but you can do it yourself!
-X = fsh.fsh.preprocessing.to_array(X)
-y = fsh.fsh.preprocessing.to_array(y)
+x       = Tensor([[4], [8], [9]])
+y       = Tensor([[8], [16], [18]])
+test    = Tensor([[40], [60]])
 
-callback = fsh.fsh.callbacks.History()
-model = fsh.fsh.Linear(n_features=2, lr=0.01)
+model = Linear(1, 1)
+engine = StandardEngine()
+optimizer = SGD(learning_rate=1e-3)
+for epoch in range(1000):
+    y_pred  = model.predict(x)
+    error   = y - y_pred
+    loss    = error ** 2
 
-# Training
-model.train(X, y, epochs=100, callbacks=[callback], loss_fn=fsh.fsh.metrics.mse)
-model.predict(X)
+    optimizer.zero_grad(model.params)
+    engine.backward(loss)
+    optimizer.step(model.params)
+
+print(model.predict(test).data)

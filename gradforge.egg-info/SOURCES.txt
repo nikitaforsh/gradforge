@@ -10,6 +10,7 @@ gradforge/_exceptions/_errors.py
 gradforge/_tests/profiling_stats.py
 gradforge/_tests/test_linear.py
 gradforge/_tests/test_operation.py
+gradforge/_tests/test_rust.py
 gradforge/_utils/colored_logger.py
 gradforge/autograd/__init__.py
 gradforge/autograd/engine.py
