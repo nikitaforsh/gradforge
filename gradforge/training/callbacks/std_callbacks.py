@@ -1,6 +1,8 @@
-class callbacks():
+# TODO: Refactor callbacks
+
+class callbacks:
     
-    class EarlyStop():
+    class EarlyStop:
         def __init__(self, patience=10, delta=1e-3):
             self.best_loss = None
             self.delta = delta
@@ -26,7 +28,7 @@ class callbacks():
             else:
                 model.stop_training = False
 
-    class History():
+    class History:
         def __init__(self):
             self.history = {'epoch': [], 'loss': [], 'val_loss': []}
         def __call__(self, model, log):

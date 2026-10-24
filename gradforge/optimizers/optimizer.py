@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class Optimizer(ABC):
     def __init__(self, learning_rate=1e-3) -> None:
         super().__init__()

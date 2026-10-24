@@ -1,6 +1,8 @@
-from .layer import Layer
-from ...core.tensor import Tensor
 from ...backend.backend_manager import BackendManager
+from ...core.tensor import Tensor
+from .layer import Layer
+
+
 class Linear(Layer):
     def __init__(self, in_shape, out_shape) -> None:
         super().__init__()      

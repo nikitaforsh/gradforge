@@ -1,6 +1,9 @@
 from math import sqrt
+
 from ..backend.backend_manager import BackendManager
-class metrics():
+
+
+class metrics:
 
     @staticmethod
     def mse(y, y_pred, training=False):

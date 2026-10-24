@@ -1,16 +1,17 @@
 from __future__ import annotations
-from ..backend.backend_manager import BackendManager
-from ..backend.backend import Backend
-from ..autograd._operations import mul, matmul, sub, div, add, pow
-from typing import Optional
 
-class Tensor():
-    __slots__ = ['data', 'requires_grad', 'grad', 'grad_fn', 'backend', 'grad_sum_axes']
+from ..autograd._operations import add, div, matmul, mul, pow, sub
+from ..backend.backend import Backend
+from ..backend.backend_manager import BackendManager
+
+
+class Tensor:
+    __slots__ = ['backend', 'data', 'grad', 'grad_fn', 'grad_sum_axes', 'requires_grad']
     
     def __init__(self, data, requires_grad: bool = False, grad_sum_axes: tuple = (0, 0)):
         self.requires_grad: bool = requires_grad
         self.grad = 0
-        self.grad_fn: Optional[list] = None
+        self.grad_fn: list | None = None
         self.backend: Backend = BackendManager.get_backend()
         self.data = self.backend.convert(data)
         self.grad_sum_axes = grad_sum_axes

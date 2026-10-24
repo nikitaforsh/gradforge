@@ -1,6 +1,8 @@
 from ..._exceptions._errors import DataError
 from ...backend.backend_manager import BackendManager
-class preprocessing():
+
+
+class preprocessing:
 
     @staticmethod
     def normalize(array, mean=None, std=None):

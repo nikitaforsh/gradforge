@@ -1,5 +1,7 @@
-from ..backend import Backend
 import numpy as np
+
+from ..backend import Backend
+
 
 class NumpyBackend(Backend):
 
