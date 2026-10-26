@@ -40,16 +40,17 @@ from gradforge.autograd import StandardEngine
 from gradforge.backend import BackendManager, NumpyBackend
 from gradforge.training.layers import Linear
 
-BackendManager.set_backend(NumpyBackend())
+BackendManager.set_backend(NumpyBackend()) # Set backend to numpy 
 
+# Creating training data
 x       = Tensor([[4], [8], [9]])
 y       = Tensor([[8], [16], [18]])
 test    = Tensor([[40], [60]])
 
-model = Linear(1, 1)
-engine = StandardEngine()
-optimizer = SGD(learning_rate=1e-3)
-for epoch in range(1000):
+model = Linear(1, 1) # Add linear layer
+engine = StandardEngine() # Add standard autograd engine 
+optimizer = SGD(learning_rate=1e-3) # Add SGD optimizer
+for epoch in range(1000): # Training loop
     y_pred  = model.predict(x)
     error   = y - y_pred
     loss    = error ** 2
@@ -58,4 +59,4 @@ for epoch in range(1000):
     engine.backward(loss)
     optimizer.step(model.params)
 
-print(model.predict(test).data)
+print(model.predict(test).data) # Check result
