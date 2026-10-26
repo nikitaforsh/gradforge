@@ -36,9 +36,9 @@ Quick Start
 ```python
 from gradforge.core import Tensor
 from gradforge.optimizers import SGD
-from gradforge.autograd.standard_engine import StandardEngine
+from gradforge.autograd import StandardEngine
 from gradforge.backend import BackendManager, NumpyBackend
-from gradforge.training.layers.linear import Linear
+from gradforge.training.layers import Linear
 
 BackendManager.set_backend(NumpyBackend())
 
