@@ -2,7 +2,7 @@ from .backend import Backend
 from .numpy_backend.numpy_backend import NumpyBackend
 
 
-class BackendManager():
+class BackendManager:
     _backend: Backend = NumpyBackend()
 
     @staticmethod

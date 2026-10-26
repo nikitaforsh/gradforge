@@ -4,14 +4,14 @@ from colorama import Fore, Style, init
 
 
 class ColoredFormatter(logging.Formatter):
-
-    COLORS = {  
-        logging.DEBUG: Fore.CYAN,
-        logging.INFO: Fore.GREEN,
-        logging.WARNING: Fore.YELLOW,
-        logging.ERROR: Fore.RED,
-        logging.CRITICAL: Fore.RED + Style.BRIGHT
-    }
+    def __init__(self):
+        self.COLORS = {  
+            logging.DEBUG: Fore.CYAN,
+            logging.INFO: Fore.GREEN,
+            logging.WARNING: Fore.YELLOW,
+            logging.ERROR: Fore.RED,
+            logging.CRITICAL: Fore.RED + Style.BRIGHT
+        }
 
     def format(self, record):
         color = self.COLORS.get(record.levelno, Fore.WHITE)
