@@ -47,5 +47,6 @@ gradforge/training/layers/__init__.py
 gradforge/training/layers/layer.py
 gradforge/training/layers/linear.py
 gradforge/training/layers/sigmoid.py
+gradforge/training/models/__init__.py
 gradforge/training/models/model.py
 gradforge/training/models/sequential.py

@@ -1,11 +1,11 @@
 #import tracemalloc
 
-from gradforge.autograd.standard_engine import StandardEngine
+from gradforge.autograd import StandardEngine
 
 #from gradforge.backend import BackendManager
 from gradforge.core import Tensor
 from gradforge.optimizers import SGD
-from gradforge.training.layers.linear import Linear
+from gradforge.training.layers import Linear
 
 #tracemalloc.start()
 
