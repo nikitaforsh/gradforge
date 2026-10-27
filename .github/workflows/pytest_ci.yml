@@ -21,4 +21,4 @@ jobs:
           python-version: '3.14' 
 
       - name: Run tests with uv
-        run: uv run pytest gradforge/_tests
+        run: uv run pytest gradforge/tests
