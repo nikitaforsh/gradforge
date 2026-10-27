@@ -9,10 +9,18 @@ from gradforge.training.layers import Linear
 
 #tracemalloc.start()
 
-def train(model, x, y, epochs):
+def test_train():
+    #before = tracemalloc.take_snapshot()
+
+    x       = Tensor([[4], [8], [9]])
+    y       = Tensor([[8], [16], [18]])
+    test    = Tensor([[40], [60]])
+    model = Linear(1, 1)
+
+    assert x.data.shape == y.data.shape
     engine = StandardEngine()
     optimizer = SGD(learning_rate=1e-3)
-    for epoch in range(epochs):
+    for epoch in range(10000):
         y_pred  = model.predict(x)
         error   = y - y_pred
         loss    = error ** 2
@@ -23,26 +31,14 @@ def train(model, x, y, epochs):
         optimizer.step(model.params)
         print("Bias grad: ", model.b.grad, "Bias data: ", model.b.data)
 
-    print(x.data @ model.w.data)
+    print(test.data @ model.w.data)
 
-x       = Tensor([[4], [8], [9]])
-y       = Tensor([[8], [16], [18]])
-test    = Tensor([[40], [60]])
-assert x.data.shape == y.data.shape
+    # after = tracemalloc.take_snapshot()
+ 
 
-#before = tracemalloc.take_snapshot()
-
-model = Linear(1, 1)
-print(model.b.data)
-train(model, x, y, epochs=10000)
-# after = tracemalloc.take_snapshot()
-
-print(test.data @ model.w.data)
-# print(model.w.data.shape)
-
-# stats = after.compare_to(before, "lineno")
-# for result in stats[:50]:
-#     print(result)
+    # stats = after.compare_to(before, "lineno")
+    # for result in stats[:50]:
+    #     print(result)
 
 # 0.757 seconds
 # Backend allocations needs to optimize

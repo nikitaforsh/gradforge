@@ -7,11 +7,6 @@ gradforge.egg-info/requires.txt
 gradforge.egg-info/top_level.txt
 gradforge/_exceptions/__init__.py
 gradforge/_exceptions/_errors.py
-gradforge/_tests/profiling_stats.py
-gradforge/_tests/test_linear.py
-gradforge/_tests/test_operation.py
-gradforge/_tests/test_rust.py
-gradforge/_tests/test_sigmoid.py
 gradforge/_utils/colored_logger.py
 gradforge/autograd/__init__.py
 gradforge/autograd/engine.py
@@ -22,7 +17,7 @@ gradforge/autograd/_operations/div.py
 gradforge/autograd/_operations/matmul.py
 gradforge/autograd/_operations/mul.py
 gradforge/autograd/_operations/pow.py
-gradforge/autograd/_operations/sigmoid.py
+gradforge/autograd/_operations/sigmoidal.py
 gradforge/autograd/_operations/sub.py
 gradforge/backend/__init__.py
 gradforge/backend/backend.py
@@ -39,6 +34,10 @@ gradforge/optimizers/__init__.py
 gradforge/optimizers/adam.py
 gradforge/optimizers/optimizer.py
 gradforge/optimizers/sgd.py
+gradforge/tests/profiling_stats.py
+gradforge/tests/test_linear.py
+gradforge/tests/test_operation.py
+gradforge/tests/test_sigmoid.py
 gradforge/training/__init__.py
 gradforge/training/trainer.py
 gradforge/training/callbacks/__init__.py
