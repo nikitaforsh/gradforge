@@ -1,3 +1,4 @@
+LICENSE.txt
 README.md
 pyproject.toml
 gradforge.egg-info/PKG-INFO
@@ -19,6 +20,7 @@ gradforge/autograd/_operations/mul.py
 gradforge/autograd/_operations/pow.py
 gradforge/autograd/_operations/sigmoidal.py
 gradforge/autograd/_operations/sub.py
+gradforge/autograd/_operations/loss/bce.py
 gradforge/backend/__init__.py
 gradforge/backend/backend.py
 gradforge/backend/backend_manager.py
@@ -46,6 +48,9 @@ gradforge/training/layers/__init__.py
 gradforge/training/layers/layer.py
 gradforge/training/layers/linear.py
 gradforge/training/layers/sigmoid.py
+gradforge/training/loss/__init__.py
+gradforge/training/loss/binary_ce.py
+gradforge/training/loss/loss.py
 gradforge/training/models/__init__.py
 gradforge/training/models/model.py
 gradforge/training/models/sequential.py
