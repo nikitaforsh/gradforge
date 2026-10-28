@@ -18,7 +18,7 @@ class Div(Operation):
         a_data, b_data = self.parent_data
 
         a_grad = result_grad / b_data if b_data != 0 else 0 
-        b_grad = (- a_data / b_data ^ 2) * result_grad if b_data != 0 else 0 
+        b_grad = ((- a_data / b_data) ** 2) * result_grad if b_data != 0 else 0 
 
         return (a_grad, b_grad)
         
