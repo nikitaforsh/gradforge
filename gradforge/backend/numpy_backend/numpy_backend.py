@@ -77,6 +77,12 @@ class NumpyBackend(Backend):
 
         return data
 
+    def clip(self, a, p1, p2):
+        return np.clip(a, p1, p2)
+
+    def log(self, a):
+        return np.log(a)
+
 
         
     

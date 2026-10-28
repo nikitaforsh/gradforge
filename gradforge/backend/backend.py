@@ -86,6 +86,14 @@ class Backend(ABC):
     def sum_array(self, data, axis: tuple):
         pass
 
+    @abstractmethod
+    def clip(self, p1, p2):
+        pass
+
+    @abstractmethod
+    def log(self, a):
+        pass
+
 
 
     
