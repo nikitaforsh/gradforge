@@ -21,7 +21,8 @@ def test_gini():
     assert gini_a == 0.5
     assert gini_b == 1.0
 
-test_gini()
+if __name__=="__main__":
+    test_gini()
 
 
     
