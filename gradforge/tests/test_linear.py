@@ -29,9 +29,7 @@ def test_train():
 
         optimizer.zero_grad(model.params)
         engine.backward(loss)
-        #print('eror grad: ', error.grad)
         optimizer.step(model.params)
-        #print("Bias grad: ", model.b.grad, "Bias data: ", model.b.data)
 
     #print(test.data @ model.w.data)
 
