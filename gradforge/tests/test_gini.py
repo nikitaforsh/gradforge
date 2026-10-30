@@ -8,7 +8,7 @@ def gini(array: list[int]):
 
     raw_probabilities = list(element_counter.values())
     gini_probabilities = [(p / len(array)) ** 2 for p in raw_probabilities]
-    return sum(gini_probabilities)
+    return 1 - sum(gini_probabilities)
     
 
 def test_gini():
@@ -19,7 +19,7 @@ def test_gini():
     gini_b = gini(b)
 
     assert gini_a == 0.5
-    assert gini_b == 1.0
+    assert gini_b == 0.0
 
 if __name__=="__main__":
     test_gini()
