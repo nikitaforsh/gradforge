@@ -1,4 +1,4 @@
-def gini(array: list[int]):
+def gini(array: list) -> float:
     element_counter: dict = {}
     for element in array:
         if element not in element_counter:
@@ -9,6 +9,12 @@ def gini(array: list[int]):
     raw_probabilities = list(element_counter.values())
     gini_probabilities = [(p / len(array)) ** 2 for p in raw_probabilities]
     return 1 - sum(gini_probabilities)
+
+def weighted_gini(y_left: list, y_right: list) -> float:
+    left_gini = len(y_left)/(len(y_left) + len(y_right)) * gini(y_left)
+    right_gini = len(y_right)/(len(y_left) + len(y_right)) * gini(y_right)
+
+    return left_gini + right_gini
     
 
 def test_gini():
