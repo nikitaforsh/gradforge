@@ -24,8 +24,11 @@ def test_gini():
     gini_a = gini(a)
     gini_b = gini(b)
 
+    weighted = weighted_gini(a, b)
+
     assert gini_a == 0.5
     assert gini_b == 0.0
+    assert weighted == 0.25
 
 if __name__=="__main__":
     test_gini()
