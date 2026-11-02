@@ -5,6 +5,6 @@ from .loss import Loss
 
 class BinaryCrossentropy(Loss):
     def __init__(self):
-        super().__init__(self)
+        super().__init__()
         self.backend = BackendManager.get_backend()
         self.loss_op = bce.BinaryCrossentropy(self.backend)

@@ -9,14 +9,15 @@ class BinaryCrossentropy(Operation):
         self.y = None
 
     def forward(self, p, y):
+        self.y = y
         self.p = self._backend.clip(p, self.epsilon, 1 - self.epsilon)
         loss = - (self.y * self._backend.log(self.p) + (1 - self.y) * self._backend.log(1 - self.p))
         return self._backend.mean(loss)
 
     
-    def backward(self, result_grad) -> tuple:
-        n = self.y.shape
-        grad = ((self.p - self.y) / (self.p * (1 - self.p))) / n
+    def backward(self, result_grad) -> list:
+        n = self.y.size 
+        grad = result_grad * ((self.p - self.y) / (self.p * (1 - self.p))) / n
 
-        return [grad]
+        return [grad, None]
         
