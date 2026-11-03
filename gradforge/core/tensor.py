@@ -16,6 +16,9 @@ class Tensor:
         self.backend: Backend = BackendManager.get_backend()
         self.data = self.backend.convert(data)
         self.grad_sum_axes = grad_sum_axes
+        
+    def __repr__(self):
+        return f"gradforge.tensor({self.data})"
 
     def sum_grads(self):
         self.grad = self.backend.sum_array(self.grad, self.grad_sum_axes)
