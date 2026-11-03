@@ -1,4 +1,4 @@
-from ...autograd.operation import Operation
+from ...operation import Operation
 
 
 class BinaryCrossentropy(Operation):
