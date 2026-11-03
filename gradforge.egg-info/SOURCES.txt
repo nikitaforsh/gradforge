@@ -40,6 +40,7 @@ gradforge/tests/profiling_stats.py
 gradforge/tests/test_linear.py
 gradforge/tests/test_operation.py
 gradforge/tests/test_sigmoid.py
+gradforge/tests/test_trees.py
 gradforge/training/__init__.py
 gradforge/training/trainer.py
 gradforge/training/callbacks/__init__.py
