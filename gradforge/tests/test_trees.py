@@ -32,6 +32,3 @@ def test_gini():
 
 if __name__=="__main__":
     test_gini()
-
-
-    
