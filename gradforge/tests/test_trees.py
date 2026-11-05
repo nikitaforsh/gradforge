@@ -64,10 +64,12 @@ def test_gini():
     data, a = sort_input(data, a)
     treshold = find_best_split(data, a)
     left, right = split_by_treshold(data, treshold=treshold)
-    print(left, right)
+
     assert gini_a == 0.5
     assert gini_b == 0.0
     assert weighted == 0.25
+    assert left == [2, 4]
+    assert right == [6, 8]
 
 if __name__=="__main__":
     test_gini()
