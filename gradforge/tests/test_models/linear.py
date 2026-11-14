@@ -12,21 +12,21 @@ class Linear:
         self.x = Tensor([[1], [2], [3], [4], [5],  [6],  [7],  [8],  [9],  [10]])
         self.y = Tensor([[2], [4], [6], [8], [10], [12], [14], [16], [18], [20]])
 
-        self.Weight = Tensor(self.backend.array_zeros((self.x.data.shape[1], self.y.data.shape[1])), requires_grad=True)
-        self.Bias   = Tensor([0], requires_grad=True)
+        self.w = Tensor(self.backend.array_zeros((self.x.data.shape[1], self.y.data.shape[1])), requires_grad=True)
+        self.b   = Tensor([0], requires_grad=True)
 
         def learning(self, epochs):
             for epoch in range(epochs):
-                prediction = self.Weight + self.x + self.Bias
+                prediction = self.w + self.x + self.b
                 loss = self.backend.mean((prediction - self.y)**2)
 
-                self.optimizer.zero_grad([self.Weight, self.Bias])
+                self.optimizer.zero_grad([self.w, self.b])
                 self.engine.backward(loss)
                 self.optimizer.step()
 
                 if (epoch + 1) % 100 == 0:
-                    print(f'||  Weight:  {self.Weight}  ||'
-                          f'  Bias:  {self.Bias}  ||')
+                    print(f'||  Weight:  {self.w}  ||'
+                          f'  Bias:  {self.b}  ||')
 
 model = Linear()
 model.learning(10000)
