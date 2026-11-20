@@ -1,4 +1,3 @@
-#TODO: Realize split criteria
 from abc import ABC, abstractmethod
 
 

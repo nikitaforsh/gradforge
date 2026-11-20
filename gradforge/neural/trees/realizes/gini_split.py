@@ -22,3 +22,6 @@ class GiniCriteria(SplitCriteria):
         right_gini = len(y_right)/(len(y_left) + len(y_right)) * self.gini(y_right)
 
         return left_gini + right_gini
+
+    def get_output(self, y_left, y_right):
+        return self.weighted_gini(y_left, y_right)
