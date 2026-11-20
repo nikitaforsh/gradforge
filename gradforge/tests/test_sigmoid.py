@@ -17,16 +17,16 @@ def test_binary():
     optimizer = SGD(learning_rate=0.01)
 
     for e in range(100):
-        linear_pred = model.predict(x)
-        pred = probs.predict(linear_pred)
-        loss_pred = loss.predict([pred, Tensor([[0], [1]])])
+        linear_pred = model(x)
+        pred        = probs(linear_pred)
+        loss_pred   = loss([pred, Tensor([[0], [1]])])
 
         optimizer.zero_grad(model.params)
         engine.backward(loss_pred)
         optimizer.step(model.params)
 
-    linear_pred = model.predict(test)
-    pred = probs.predict(linear_pred)
+    linear_pred = model(test)
+    pred = probs(linear_pred)
 
     assert any(pred.data) == True
 

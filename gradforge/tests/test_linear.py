@@ -23,7 +23,7 @@ def test_train():
     engine = StandardEngine()
     optimizer = SGD(learning_rate=1e-3)
     for epoch in range(10000):
-        y_pred  = model.predict(x)
+        y_pred  = model(x)
         error   = y - y_pred
         loss    = error ** 2
 
