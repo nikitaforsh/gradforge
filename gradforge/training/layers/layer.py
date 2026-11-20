@@ -6,7 +6,7 @@ class Layer(ABC):
         super().__init__()
 
     @abstractmethod
-    def predict():
+    def __call__():
         pass
 
     @abstractmethod

@@ -9,7 +9,7 @@ class Sigmoid(Layer):
         self.sigmoidal = Sigmoidal()
 
         
-    def predict(self, x: Tensor) -> Tensor:
+    def __call__(self, x: Tensor) -> Tensor:
         pred = Tensor(self.sigmoidal.forward(x.data), requires_grad=x.requires_grad)
         pred.grad_fn = [[x], self.sigmoidal]
         return pred

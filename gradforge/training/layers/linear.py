@@ -11,7 +11,7 @@ class Linear(Layer):
         self.b: Tensor = Tensor(self._backend.array_ones((1,)), requires_grad=True, grad_sum_axes=(1, 1))
 
         
-    def predict(self, x: Tensor) -> Tensor:
+    def __call__(self, x: Tensor) -> Tensor:
         return x @ self.w + self.b
 
     @property
