@@ -7,7 +7,7 @@ class Loss:
         super().__init__()
         self.loss_op: Operation | None = None
         
-    def predict(self, data: list[Tensor]):
+    def __call__(self, data: list[Tensor]):
         result_tensor = Tensor._form_result(self.loss_op, 
                                             [e.data for e in data], 
                                             data, 
